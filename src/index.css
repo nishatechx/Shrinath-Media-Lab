@@ -20,13 +20,32 @@
   }
 }
 
-body {
-  overflow-x: hidden;
-  background-color: #FFFFFF;
-  color: var(--color-text-secondary);
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    overflow-x: hidden;
+    background-color: #0A2540;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 }
 
-/* Glassmorphism utility for light theme */
+/* Allow selection in input fields for usability */
+input, textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.mask-gradient {
+  mask-image: radial-gradient(circle at center, black 50%, transparent 90%);
+}
 .glass-panel {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(16px);

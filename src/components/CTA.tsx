@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Mail, MapPin } from 'lucide-react';
 import ContactForm from './ContactForm';
+import { Reveal } from './Reveal';
 
 export default function CTA() {
   return (
@@ -14,48 +15,51 @@ export default function CTA() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
           <div className="lg:col-span-6">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-500/10 border border-orange-500/20 rounded-full mb-6">
-                <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-                <span className="text-[10px] font-bold text-orange-500 uppercase tracking-[0.2em]">Connect With Us</span>
-              </div>
+            <div className="space-y-2">
+              <Reveal y={20}>
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-500/10 border border-orange-500/20 rounded-full mb-6 max-w-fit">
+                  <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+                  <span className="text-[10px] font-bold text-orange-500 uppercase tracking-[0.2em]">Connect With Us</span>
+                </div>
+              </Reveal>
               
-              <h2 className="text-6xl md:text-8xl font-display font-black text-white mb-8 tracking-tight leading-[1.1]">
-                Let's Build <br />
-                Something <span className="text-orange-500">Legendary.</span>
-              </h2>
+              <Reveal delay={0.1} y={30}>
+                <h2 className="text-6xl md:text-8xl font-display font-black text-white mb-8 tracking-tight leading-[1.1]">
+                  Let's Build <br />
+                  Something <span className="text-orange-500">Legendary.</span>
+                </h2>
+              </Reveal>
               
-              <p className="text-xl text-slate-300 mb-12 max-w-lg leading-relaxed font-light">
-                Ready to take your digital experience to the next level? Our engineering-first approach ensures growth, scale, and performance.
-              </p>
+              <Reveal delay={0.2} y={30}>
+                <p className="text-xl text-slate-300 mb-12 max-w-lg leading-relaxed font-light">
+                  Ready to take your digital experience to the next level? Our engineering-first approach ensures growth, scale, and performance.
+                </p>
+              </Reveal>
               
-              <div className="space-y-6">
-                <div className="flex items-center gap-4 group">
-                  <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover:bg-orange-500 transition-colors">
-                    <Mail className="text-orange-500 group-hover:text-white transition-colors" size={20} />
+              <Reveal delay={0.3} y={20}>
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4 group">
+                    <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover:bg-orange-500 transition-colors">
+                      <Mail className="text-orange-500 group-hover:text-white transition-colors" size={20} />
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-500 uppercase font-bold tracking-widest">Email Us</p>
+                      <a href="mailto:shrinathmedia@gmail.com" className="text-white hover:text-orange-500 transition-colors font-semibold">shrinathmedia@gmail.com</a>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-xs text-slate-500 uppercase font-bold tracking-widest">Email Us</p>
-                    <a href="mailto:medishrinath@gmail.com" className="text-white hover:text-orange-500 transition-colors font-semibold">medishrinath@gmail.com</a>
+                  
+                  <div className="flex items-center gap-4 group">
+                    <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover:bg-blue-500 transition-colors">
+                      <MapPin className="text-blue-500 group-hover:text-white transition-colors" size={20} />
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-500 uppercase font-bold tracking-widest">Our HQ</p>
+                      <p className="text-white font-semibold">Washim, Maharashtra, India</p>
+                    </div>
                   </div>
                 </div>
-                
-                <div className="flex items-center gap-4 group">
-                  <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover:bg-blue-500 transition-colors">
-                    <MapPin className="text-blue-500 group-hover:text-white transition-colors" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-xs text-slate-500 uppercase font-bold tracking-widest">Our HQ</p>
-                    <p className="text-white font-semibold">Washim, Maharashtra, India</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+              </Reveal>
+            </div>
           </div>
 
           <div className="lg:col-span-6">

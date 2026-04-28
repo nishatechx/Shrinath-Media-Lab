@@ -15,7 +15,9 @@ import {
   Share2
 } from 'lucide-react';
 
-const services = [
+import { Reveal } from './Reveal';
+
+const solutions = [
   {
     title: 'Digital Marketing',
     description: 'Performance-driven strategies designed to increase visibility, generate leads, and scale your business.',
@@ -130,9 +132,9 @@ const services = [
   }
 ];
 
-const ServicePanel = ({ service, index }: { service: any, index: number }) => {
+const SolutionPanel = ({ solution, index }: { solution: any, index: number }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const Icon = service.icon;
+  const Icon = solution.icon;
 
   return (
     <motion.div
@@ -155,12 +157,12 @@ const ServicePanel = ({ service, index }: { service: any, index: number }) => {
       </div>
       
       <div className="flex-grow">
-        <h3 className="text-lg font-display font-semibold text-white mb-2 tracking-tight">{service.title}</h3>
-        <p className="text-gray-400 font-sans text-sm leading-relaxed mb-4">{service.description}</p>
+        <h3 className="text-lg font-display font-semibold text-white mb-2 tracking-tight">{solution.title}</h3>
+        <p className="text-gray-400 font-sans text-sm leading-relaxed mb-4">{solution.description}</p>
         
-        {service.positioning && (
+        {solution.positioning && (
            <div className="text-[9px] text-orange-500/80 font-bold tracking-widest uppercase mb-4 py-1 inline-block border-b border-orange-500/20">
-             {service.positioning}
+             {solution.positioning}
            </div>
         )}
 
@@ -174,7 +176,7 @@ const ServicePanel = ({ service, index }: { service: any, index: number }) => {
               className="overflow-hidden"
             >
               <ul className="space-y-2 pt-4 mt-2 border-t border-white/5">
-                {service.items.map((item: string, i: number) => (
+                {solution.items.map((item: string, i: number) => (
                   <motion.li 
                     key={i}
                     initial={{ x: -5, opacity: 0 }}
@@ -195,7 +197,7 @@ const ServicePanel = ({ service, index }: { service: any, index: number }) => {
   );
 };
 
-export default function Services() {
+export default function Solutions() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -205,60 +207,36 @@ export default function Services() {
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
   return (
-    <section id="services" ref={containerRef} className="py-24 bg-transparent relative z-10 overflow-hidden">
+    <section id="solutions" ref={containerRef} className="py-24 bg-transparent relative z-10 overflow-hidden">
       {/* Decorative large shapes */}
       <motion.div style={{ y }} className="absolute -right-64 top-1/4 w-[500px] h-[500px] rounded-full border-[1px] border-white/5 opacity-50 z-0 pointer-events-none" />
       <motion.div style={{ y: useTransform(scrollYProgress, [0, 1], [-100, 100]) }} className="absolute -left-64 bottom-1/4 w-[600px] h-[600px] rounded-full border-[1px] border-white/5 opacity-50 z-0 pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { 
-              opacity: 1,
-              transition: { staggerChildren: 0.15 }
-            }
-          }}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8"
-        >
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <div className="max-w-2xl">
-            <motion.div 
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 }
-              }}
-              className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 text-gray-300 mb-6 font-semibold text-sm tracking-wider uppercase backdrop-blur-md border border-white/10"
-            >
-              <div className="w-2 h-2 rounded-full bg-orange-500"></div>
-              Core Capabilities
-            </motion.div>
+            <Reveal y={20}>
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 text-gray-300 mb-6 font-semibold text-sm tracking-wider uppercase backdrop-blur-md border border-white/10">
+                <div className="w-2 h-2 rounded-full bg-orange-500"></div>
+                Core Capabilities
+              </div>
+            </Reveal>
             
-            <motion.h2 
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 }
-              }}
-              className="text-5xl md:text-7xl font-display font-black text-white leading-tight"
-            >
-              Engineering <span className="text-orange-500">Digital Growth.</span>
-            </motion.h2>
+            <Reveal delay={0.1} y={30}>
+              <h2 className="text-5xl md:text-7xl font-display font-black text-white leading-tight">
+                Engineering <span className="text-orange-500">Digital Growth.</span>
+              </h2>
+            </Reveal>
           </div>
           
-          <motion.div 
-            variants={{
-              hidden: { opacity: 0, x: 20 },
-              visible: { opacity: 1, x: 0 }
-            }}
-            className="md:max-w-sm"
-          >
-            <p className="text-gray-400 text-lg leading-relaxed border-l-2 border-orange-500 pl-6">
-              We deliver end-to-end digital solutions that help organizations grow, communicate, and operate efficiently.
-            </p>
-          </motion.div>
-        </motion.div>
+          <Reveal delay={0.2}>
+            <div className="md:max-w-sm">
+              <p className="text-gray-400 text-lg leading-relaxed border-l-2 border-orange-500 pl-6">
+                We deliver end-to-end digital solutions that help organizations grow, communicate, and operate efficiently.
+              </p>
+            </div>
+          </Reveal>
+        </div>
 
         <motion.div 
           initial="hidden"
@@ -273,8 +251,8 @@ export default function Services() {
           }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
-          {services.map((service, idx) => (
-            <ServicePanel key={idx} service={service} index={idx} />
+          {solutions.map((solution, idx) => (
+            <SolutionPanel key={idx} solution={solution} index={idx} />
           ))}
         </motion.div>
       </div>

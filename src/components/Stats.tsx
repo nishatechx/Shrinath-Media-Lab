@@ -1,6 +1,8 @@
 import { useRef, useEffect } from 'react';
 import { motion, useInView, useMotionValue, useTransform, animate } from 'motion/react';
 
+import { Reveal } from './Reveal';
+
 const CountUp = ({ to, suffix = '', prefix = '', duration = 2 }: { to: number; suffix?: string; prefix?: string; duration?: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -43,16 +45,15 @@ export default function Stats() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="text-center mb-16">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-4"
-          >
-            <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">Our Impact</span>
-          </motion.div>
-          <h2 className="text-4xl md:text-6xl font-display font-black text-white tracking-tight">Proven Results</h2>
+          <Reveal y={20}>
+            <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-4 mx-auto">
+              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">Our Impact</span>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1} y={30}>
+            <h2 className="text-4xl md:text-6xl font-display font-black text-white tracking-tight">Proven Results</h2>
+          </Reveal>
         </div>
 
         <motion.div 

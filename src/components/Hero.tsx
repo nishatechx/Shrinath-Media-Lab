@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
 import { useRef, useState } from 'react';
+import { Globe } from './Globe';
 
 export default function Hero() {
   const containerRef = useRef(null);
@@ -19,6 +20,17 @@ export default function Hero() {
 
   return (
     <section id="home" ref={containerRef} className="relative h-screen w-full overflow-hidden bg-transparent">
+      
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none flex items-center justify-end md:justify-center">
+        <motion.div 
+          animate={{ y: [-15, 15, -15], rotate: [0, 2, -2, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute right-0 md:right-[15%] lg:right-[20%] top-1/2 -translate-y-1/2 translate-x-[20%] md:translate-x-0 w-[500px] md:w-[800px] h-[500px] md:h-[800px] flex items-center justify-center opacity-25 blur-[2px] scale-75 md:scale-100 mix-blend-screen pointer-events-auto"
+        >
+          <Globe />
+        </motion.div>
+      </div>
+
       {/* Content */}
       <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-end pt-20">
         
@@ -27,12 +39,12 @@ export default function Hero() {
            initial={{ opacity: 0, x: -30 }}
            animate={{ opacity: 1, x: 0 }}
            transition={{ duration: 0.8 }}
-           className="absolute bottom-0 left-0 md:left-0 lg:left-8 w-full md:w-[50%] h-[55vh] md:h-[80vh] lg:h-[88vh] flex justify-center md:justify-center items-end pointer-events-none opacity-40 md:opacity-100 z-0"
+           className="absolute bottom-0 left-0 md:left-0 lg:left-8 w-full md:w-[50%] h-[55vh] md:h-[80vh] lg:h-[88vh] flex justify-center md:justify-center items-end z-0"
         >
           <img 
             src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYE6dPXKTvjuyXO8jbVOEsQOQeZpogrfjyxEJRZQuq-JEPyYWHAevQ0Q6rhE1jY4DruYffdS5ZT5UnlVZC5amRjeSyroVQNXy87mQXiM7jFA18HHYQVMURoCyThd4vzOwI2vHHRH-smvzQ2aOduFeER9SGYIW04dPx9ThmuY27Tio1-Yoe9HWM9h-JK88/s16000/Shrinath%20Pointing.png" 
             alt="Shrinath pointing" 
-            className="h-full w-auto object-contain object-bottom drop-shadow-2xl" 
+            className="h-full w-auto object-contain object-bottom relative z-1 pointer-events-auto" 
           />
         </motion.div>
 
@@ -70,15 +82,6 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-shimmer"></div>
               <span className="relative z-10 text-lg">Start Your Project</span>
               <ArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform" size={20} />
-            </a>
-            <a 
-              href="#services" 
-              className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-white/10 text-white hover:bg-white/20 border border-white/20 hover:border-white/40 backdrop-blur-md rounded-xl font-semibold transition-all shadow-sm hover:shadow-md group"
-            >
-              <div className="w-8 h-8 rounded-full bg-white text-orange-500 flex items-center justify-center shadow-sm group-hover:bg-orange-500 group-hover:text-white transition-colors">
-                <Play size={14} className="ml-0.5" fill="currentColor" />
-              </div>
-              <span className="text-lg">View Showreel</span>
             </a>
           </motion.div>
         </div>

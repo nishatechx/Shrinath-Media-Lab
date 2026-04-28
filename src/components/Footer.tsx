@@ -30,7 +30,7 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-3 lg:col-start-7">
-            <h4 className="text-white font-display font-bold text-lg mb-6 tracking-wide">Services</h4>
+            <h4 className="text-white font-display font-bold text-lg mb-6 tracking-wide">Solutions</h4>
             <ul className="space-y-4">
               {['Digital Marketing', 'Web & App Development', 'Branding & Creative', 'Government Solutions', 'Education Solutions'].map((item, i) => (
                 <li key={i}>
@@ -55,7 +55,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-[#FF6A00]/50 transition-colors group">
                 <Mail className="text-white" size={20} />
-                <span className="text-slate-300 text-sm font-light group-hover:text-white transition-colors">medishrinath@gmail.com</span>
+                <span className="text-slate-300 text-sm font-light group-hover:text-white transition-colors">shrinathmedia@gmail.com</span>
               </li>
             </ul>
           </div>

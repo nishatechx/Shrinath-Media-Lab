@@ -2,6 +2,8 @@
 import { motion } from 'motion/react';
 import { Target, Shield, Zap, Building2 } from 'lucide-react';
 
+import { Reveal } from './Reveal';
+
 const features = [
   {
     title: 'Result-Focused Execution',
@@ -32,33 +34,36 @@ export default function WhyChooseUs() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
           <div>
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="inline-flex items-center gap-4 mb-6">
+            <div className="space-y-4">
+              <Reveal y={20}>
+                <div className="inline-flex items-center gap-4 mb-6">
                   <div className="h-[2px] w-12 bg-orange-500"></div>
                   <span className="text-orange-500 font-bold tracking-widest uppercase text-xs">Why Us</span>
                 </div>
-                
+              </Reveal>
+              
+              <Reveal delay={0.1} y={30}>
                 <h2 className="text-5xl md:text-6xl font-display font-black text-white mb-8 leading-tight">
                   Built for Performance.<br/>
                   <span className="text-orange-500">Designed for Scale.</span>
                 </h2>
-                
+              </Reveal>
+              
+              <Reveal delay={0.2} y={30}>
                 <p className="text-gray-300 text-lg mb-10 leading-relaxed font-light">
                   We don’t deliver “services.”<br/>
                   <span className="text-white font-medium">We deliver solutions that perform in real-world conditions.</span>
                 </p>
-                
+              </Reveal>
+              
+              <Reveal delay={0.3} y={10}>
                 <div className="pt-8 border-t border-white/10">
                   <blockquote className="text-gray-400 italic font-sans text-sm border-l-2 border-orange-500 pl-4 py-1">
                     "Our goal is to build digital ecosystems that don't just work—they excel."
                   </blockquote>
                 </div>
-            </motion.div>
+              </Reveal>
+            </div>
           </div>
 
           <motion.div

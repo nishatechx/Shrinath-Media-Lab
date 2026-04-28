@@ -66,12 +66,12 @@ export default function ContactForm() {
       </div>
       
       <div className="space-y-2">
-        <label htmlFor="service" className="text-sm font-semibold text-slate-400 uppercase tracking-wider">
-          Service Interested In
+        <label htmlFor="solution" className="text-sm font-semibold text-slate-400 uppercase tracking-wider">
+          Solution Interested In
         </label>
         <select
-          id="service"
-          name="service"
+          id="solution"
+          name="solution"
           className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/50 transition-all appearance-none"
         >
           <option value="web-dev" className="bg-[#0A2540]">Web Development</option>
