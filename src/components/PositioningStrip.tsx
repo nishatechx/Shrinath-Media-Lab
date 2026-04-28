@@ -4,7 +4,7 @@ import { Shield, Globe, Award } from 'lucide-react';
 
 export const PositioningStrip = () => {
   return (
-    <section className="relative py-14 bg-white overflow-hidden">
+    <section className="relative py-14 bg-white/5 backdrop-blur-md overflow-hidden border-y border-white/10">
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="flex-shrink-0">
@@ -14,12 +14,12 @@ export const PositioningStrip = () => {
               viewport={{ once: true }}
               className="flex items-center gap-4"
             >
-              <div className="p-3 bg-slate-900 rounded-xl shadow-xl shadow-slate-200">
+              <div className="p-3 bg-white/10 rounded-xl shadow-xl shadow-black/20 border border-white/10">
                 <Shield className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h3 className="text-slate-900 font-display font-bold text-2xl leading-tight">Digital Solutions.</h3>
-                <p className="text-blue-600 font-display font-bold text-2xl leading-tight">Real Impact.</p>
+                <h3 className="text-white font-display font-bold text-2xl leading-tight">Digital Solutions.</h3>
+                <p className="text-orange-500 font-display font-bold text-2xl leading-tight">Real Impact.</p>
               </div>
             </motion.div>
           </div>
@@ -31,21 +31,21 @@ export const PositioningStrip = () => {
             transition={{ delay: 0.1 }}
             className="flex-1 max-w-2xl"
           >
-            <p className="text-slate-500 font-sans text-xl leading-relaxed text-center md:text-left font-medium">
-              Trusted by <span className="text-slate-900">growing businesses</span>, 
-              <span className="text-slate-900"> educational institutions</span>, and 
-              <span className="text-slate-900"> public sector organizations</span> across India.
+            <p className="text-slate-400 font-sans text-xl leading-relaxed text-center md:text-left font-medium">
+              Trusted by <span className="text-white">growing businesses</span>, 
+              <span className="text-white"> educational institutions</span>, and 
+              <span className="text-white"> public sector organizations</span> across India.
             </p>
           </motion.div>
 
-          <div className="flex items-center gap-10 opacity-20 hover:opacity-100 transition-opacity duration-500">
+          <div className="flex items-center gap-10 opacity-40 hover:opacity-100 transition-opacity duration-500">
             <div className="flex flex-col items-center">
-              <Globe className="w-10 h-10 text-slate-900 mb-1" />
-              <span className="text-[11px] text-slate-900 uppercase tracking-widest font-black">Public</span>
+              <Globe className="w-10 h-10 text-white mb-1" />
+              <span className="text-[11px] text-white uppercase tracking-widest font-black">Public</span>
             </div>
             <div className="flex flex-col items-center">
-              <Award className="w-10 h-10 text-slate-900 mb-1" />
-              <span className="text-[11px] text-slate-900 uppercase tracking-widest font-black">Edu</span>
+              <Award className="w-10 h-10 text-white mb-1" />
+              <span className="text-[11px] text-white uppercase tracking-widest font-black">Edu</span>
             </div>
           </div>
         </div>
