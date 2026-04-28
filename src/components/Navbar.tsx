@@ -15,10 +15,11 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
+    { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Services', href: '#services' },
+    { name: 'Results', href: '#results' },
     { name: 'Why Us', href: '#why-us' },
-    { name: 'Work', href: '#work' },
   ];
 
   return (
@@ -27,7 +28,7 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/90 backdrop-blur-md border-b border-gray-100 py-4 shadow-lg' : 'bg-transparent py-6'
+        scrolled ? 'bg-[#0A2540]/80 backdrop-blur-md border-b border-white/10 py-4 shadow-lg' : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -47,14 +48,10 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className={`text-sm font-medium transition-colors relative group ${
-                scrolled ? 'text-[#1F2937] hover:text-orange-500' : 'text-white hover:text-orange-400'
-              }`}
+              className={`text-sm font-medium transition-colors relative group text-white hover:text-orange-400`}
             >
               {link.name}
-              <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full ${
-                scrolled ? 'bg-orange-500' : 'bg-white'
-              }`}></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
             </a>
           ))}
           <a
@@ -67,7 +64,7 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className={`md:hidden transition-colors ${scrolled ? 'text-[#0A2540]' : 'text-white'}`}
+          className="md:hidden transition-colors text-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -81,14 +78,14 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-gray-100 overflow-hidden shadow-xl"
+            className="md:hidden bg-[#0A2540] border-b border-white/10 overflow-hidden shadow-xl"
           >
             <div className="px-6 py-6 flex flex-col gap-6">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-lg font-medium text-[#0A2540] hover:text-[#0055FF] transition-colors"
+                  className="text-lg font-medium text-white hover:text-orange-500 transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.name}
@@ -96,7 +93,7 @@ export default function Navbar() {
               ))}
               <a
                 href="#contact"
-                className="mt-4 w-full text-center px-6 py-4 rounded-xl bg-[#0A2540] text-white text-base font-semibold"
+                className="mt-4 w-full text-center px-6 py-4 rounded-xl bg-orange-500 text-white text-base font-semibold"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Get Started

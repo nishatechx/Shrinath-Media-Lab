@@ -4,7 +4,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0A2540] pt-24 pb-12 relative z-10 overflow-hidden">
+    <footer className="bg-transparent pt-10 pb-12 relative z-10 overflow-hidden">
       {/* Decorative top border */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0055FF] via-[#FF6A00] to-[#0055FF]"></div>
       
@@ -12,15 +12,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20 relative z-10">
           
           <div className="lg:col-span-5">
-            <a href="#" className="flex items-center group mb-6">
-              <img 
-                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEio9baJm4hJx1nKsQCo4rxm6dJBJVpRI4N7026wS7HtRxsrwwzJzdxkA3WQmF3eJAIFsekbLX_DPxjM1quXYBXK9W_WkLwXLlz8fhrTbIrj6IKmUEDLSuKQkhpQ85i0rjWCHyaYZO7Sv60CndOAjkM8yvGwr0Gsjs_fMmAzjdn-WAeS__D7Q4PkCjEYPLI/s16000/Shrinath%20Media%20LABS.png" 
-                alt="Shrinath Media Labs" 
-                className="h-12 w-auto transform group-hover:scale-105 transition-transform duration-300"
-              />
-            </a>
+            <div className="mb-6">
+              <span className="text-2xl font-display font-black text-white tracking-tight">
+                SHRINATH<span className="text-orange-500">MEDIA</span>
+              </span>
+            </div>
             <p className="text-slate-300 max-w-sm mb-8 leading-relaxed font-light">
-              Digital Solutions. Real Impact. Empowering businesses, institutions, and governments to architect their future.
+              Digital Solutions. Real Impact.
             </p>
             <div className="flex items-center gap-3">
               {[Twitter, Linkedin, Instagram].map((Icon, i) => (
@@ -49,15 +47,15 @@ export default function Footer() {
             <ul className="space-y-5">
               <li className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-[#FF6A00]/50 transition-colors group">
                 <MapPin className="text-[#FF6A00]" size={20} />
-                <span className="text-slate-300 text-sm leading-relaxed font-light group-hover:text-white transition-colors">Innovation Park, Tech Ave<br/>Cyber City, 400001</span>
+                <span className="text-slate-300 text-sm leading-relaxed font-light group-hover:text-white transition-colors">Shrinath Media Labs, Civil Line, Washim</span>
               </li>
               <li className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-[#FF6A00]/50 transition-colors group">
                 <Phone className="text-[#0055FF]" size={20} />
-                <span className="text-slate-300 text-sm font-light group-hover:text-white transition-colors">+1 (555) 123-4567</span>
+                <span className="text-slate-300 text-sm font-light group-hover:text-white transition-colors">+91 9699658462</span>
               </li>
               <li className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-[#FF6A00]/50 transition-colors group">
                 <Mail className="text-white" size={20} />
-                <span className="text-slate-300 text-sm font-light group-hover:text-white transition-colors">hello@shrinathmedialabs.com</span>
+                <span className="text-slate-300 text-sm font-light group-hover:text-white transition-colors">medishrinath@gmail.com</span>
               </li>
             </ul>
           </div>

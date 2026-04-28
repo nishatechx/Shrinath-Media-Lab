@@ -1,23 +1,24 @@
-import { motion } from 'motion/react';
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
+import { useRef, useState } from 'react';
 
 export default function Hero() {
-  return (
-    <section className="relative h-screen w-full overflow-hidden bg-black">
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {/* YouTube Video Background */}
-        <iframe
-          className="absolute top-1/2 left-1/2 w-[120vw] h-[67.5vw] min-h-[120vh] min-w-[213.33vh] -translate-x-1/2 -translate-y-1/2 opacity-70 pointer-events-none"
-          src="https://www.youtube-nocookie.com/embed/l_Se6xVUTVo?autoplay=1&mute=1&controls=0&loop=1&playlist=l_Se6xVUTVo&playsinline=1&modestbranding=1&disablekb=1&fs=0&iv_load_policy=3&rel=0"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          style={{ border: 0 }}
-        ></iframe>
-        {/* Overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-black/40" />
-      </div>
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
 
+  const [progress, setProgress] = useState(0);
+  
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    setProgress(latest);
+  });
+
+  const backgroundOpacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0]);
+
+  return (
+    <section id="home" ref={containerRef} className="relative h-screen w-full overflow-hidden bg-transparent">
       {/* Content */}
       <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-end pt-20">
         
@@ -26,7 +27,7 @@ export default function Hero() {
            initial={{ opacity: 0, x: -30 }}
            animate={{ opacity: 1, x: 0 }}
            transition={{ duration: 0.8 }}
-           className="absolute bottom-0 left-0 md:left-0 lg:left-8 w-full md:w-[50%] h-[60vh] md:h-[90vh] lg:h-[100vh] flex justify-center md:justify-center items-end pointer-events-none opacity-40 md:opacity-100 z-0"
+           className="absolute bottom-0 left-0 md:left-0 lg:left-8 w-full md:w-[50%] h-[55vh] md:h-[80vh] lg:h-[88vh] flex justify-center md:justify-center items-end pointer-events-none opacity-40 md:opacity-100 z-0"
         >
           <img 
             src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYE6dPXKTvjuyXO8jbVOEsQOQeZpogrfjyxEJRZQuq-JEPyYWHAevQ0Q6rhE1jY4DruYffdS5ZT5UnlVZC5amRjeSyroVQNXy87mQXiM7jFA18HHYQVMURoCyThd4vzOwI2vHHRH-smvzQ2aOduFeER9SGYIW04dPx9ThmuY27Tio1-Yoe9HWM9h-JK88/s16000/Shrinath%20Pointing.png" 
@@ -43,7 +44,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.05] text-white mb-6 tracking-tight"
           >
-            Where Ideas<br />Turn Into<br />
+            Where Ideas<br />Become<br />
             <span className="text-orange-500 drop-shadow-md">Digital Impact</span>
           </motion.h1>
 
@@ -53,7 +54,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-xl text-gray-200 mb-10 max-w-lg leading-relaxed font-sans font-light drop-shadow-sm"
           >
-            At Shrinath Media Lab, we design websites, create content, and build systems that help brands grow—with clarity, creativity, and purpose.
+            We design, build, and scale digital systems for businesses, institutions, and government organizations—driving measurable growth through technology and strategy.
           </motion.p>
 
           <motion.div
@@ -67,11 +68,11 @@ export default function Hero() {
               className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-orange-500 text-white rounded-xl font-semibold overflow-hidden transition-all hover:scale-[1.02] hover:shadow-[0_20px_40px_-10px_rgba(249,115,22,0.4)]"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-shimmer"></div>
-              <span className="relative z-10 text-lg">Partner With Us</span>
+              <span className="relative z-10 text-lg">Start Your Project</span>
               <ArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform" size={20} />
             </a>
             <a 
-              href="#work" 
+              href="#services" 
               className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-white/10 text-white hover:bg-white/20 border border-white/20 hover:border-white/40 backdrop-blur-md rounded-xl font-semibold transition-all shadow-sm hover:shadow-md group"
             >
               <div className="w-8 h-8 rounded-full bg-white text-orange-500 flex items-center justify-center shadow-sm group-hover:bg-orange-500 group-hover:text-white transition-colors">
