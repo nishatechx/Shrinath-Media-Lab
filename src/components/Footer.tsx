@@ -22,7 +22,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3">
               {[Twitter, Linkedin, Instagram].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white hover:bg-[#0055FF] hover:border-[#0055FF] transition-all duration-300">
+                <a key={i} href="/" onClick={(e) => e.preventDefault()} className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white hover:bg-[#0055FF] hover:border-[#0055FF] transition-all duration-300 cursor-pointer">
                   <Icon size={18} strokeWidth={1.5} />
                 </a>
               ))}
@@ -34,7 +34,7 @@ export default function Footer() {
             <ul className="space-y-4">
               {['Digital Marketing', 'Web & App Development', 'Branding & Creative', 'Government Solutions', 'Education Solutions'].map((item, i) => (
                 <li key={i}>
-                  <a href="#" className="text-slate-400 hover:text-white transition-colors text-sm font-medium inline-block hover:translate-x-1 duration-300 transform">
+                  <a href="/" onClick={(e) => e.preventDefault()} className="text-slate-400 hover:text-white transition-colors text-sm font-medium inline-block hover:translate-x-1 duration-300 transform cursor-pointer">
                     {item}
                   </a>
                 </li>
@@ -67,8 +67,8 @@ export default function Footer() {
             © {currentYear} Shrinath IT Solutions. All rights reserved.
           </p>
           <div className="flex gap-8">
-            <a href="#" className="text-slate-500 hover:text-white transition-colors text-sm font-medium">Privacy Policy</a>
-            <a href="#" className="text-slate-500 hover:text-white transition-colors text-sm font-medium">Terms of Service</a>
+            <a href="/" onClick={(e) => e.preventDefault()} className="text-slate-500 hover:text-white transition-colors text-sm font-medium cursor-pointer">Privacy Policy</a>
+            <a href="/" onClick={(e) => e.preventDefault()} className="text-slate-500 hover:text-white transition-colors text-sm font-medium cursor-pointer">Terms of Service</a>
           </div>
         </div>
       </div>

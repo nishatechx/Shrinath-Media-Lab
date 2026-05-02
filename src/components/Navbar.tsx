@@ -15,12 +15,26 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Solutions', href: '#solutions' },
-    { name: 'Results', href: '#results' },
-    { name: 'Why Us', href: '#why-us' },
+    { name: 'Home', id: 'home' },
+    { name: 'About', id: 'about' },
+    { name: 'Solutions', id: 'solutions' },
+    { name: 'Results', id: 'results' },
+    { name: 'Why Us', id: 'why-us' },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      // Small delay for smooth closing of mobile menu
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
+    } else if (id === 'home' || id === '') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    setMobileMenuOpen(false);
+  };
 
   return (
     <motion.nav
@@ -32,7 +46,7 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        <a href="#" className="flex items-center group">
+        <a href="/" onClick={(e) => handleNavClick(e, 'home')} className="flex items-center group cursor-pointer">
           <img 
             src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgr-Y87Ia7lihUlQ6BJ8mmV-9tqFLTJnwcxnzcUTKwKfgbdRZAsSKtUkN-u25olDr_an48sU_XTFrzaxZHrSWdWCH-lBeGj2jinpFSnqOzx3_bZUgeCyt5OSmD58atYNjqIfEk9mVHb1XeCPydjkE81DZtUEQ89s1HPF9QH5zON9I5iEV0url29Vc-eN_c/s16000/Shrinath%20IT%20Solutions%20Logo%20PNG.png" 
             alt="Shrinath IT Solutions" 
@@ -45,16 +59,18 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <a
               key={link.name}
-              href={link.href}
-              className={`text-sm font-medium transition-colors relative group text-white hover:text-orange-400`}
+              href={`/${link.id === 'home' ? '' : '#' + link.id}`}
+              onClick={(e) => handleNavClick(e, link.id)}
+              className={`text-sm font-medium transition-colors relative group text-white hover:text-orange-400 cursor-pointer`}
             >
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
             </a>
           ))}
           <a
-            href="#contact"
-            className="px-6 py-2.5 rounded-full bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold transition-all hover:shadow-lg hover:shadow-orange-500/20 transform hover:-translate-y-0.5"
+            href="/#contact"
+            onClick={(e) => handleNavClick(e, 'contact')}
+            className="px-6 py-2.5 rounded-full bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold transition-all hover:shadow-lg hover:shadow-orange-500/20 transform hover:-translate-y-0.5 cursor-pointer"
           >
             Get Started
           </a>
@@ -82,17 +98,17 @@ export default function Navbar() {
               {navLinks.map((link) => (
                 <a
                   key={link.name}
-                  href={link.href}
-                  className="text-lg font-medium text-white hover:text-orange-500 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
+                  href={`/${link.id === 'home' ? '' : '#' + link.id}`}
+                  className="text-lg font-medium text-white hover:text-orange-500 transition-colors cursor-pointer"
+                  onClick={(e) => handleNavClick(e, link.id)}
                 >
                   {link.name}
                 </a>
               ))}
               <a
-                href="#contact"
-                className="mt-4 w-full text-center px-6 py-4 rounded-xl bg-orange-500 text-white text-base font-semibold"
-                onClick={() => setMobileMenuOpen(false)}
+                href="/#contact"
+                className="mt-4 w-full text-center px-6 py-4 rounded-xl bg-orange-500 text-white text-base font-semibold cursor-pointer"
+                onClick={(e) => handleNavClick(e, 'contact')}
               >
                 Get Started
               </a>

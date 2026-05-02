@@ -144,8 +144,15 @@ export default function Hero() {
             className="flex flex-col items-center md:items-start gap-4 pointer-events-auto"
           >
             <a 
-              href="#contact" 
-              className="group relative inline-flex items-center justify-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-full md:rounded-xl font-semibold overflow-hidden transition-all hover:scale-[1.02] hover:shadow-[0_20px_40px_-10px_rgba(249,115,22,0.4)] w-auto min-w-[200px]"
+              href="/#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('contact');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="group relative inline-flex items-center justify-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-full md:rounded-xl font-semibold overflow-hidden transition-all hover:scale-[1.02] hover:shadow-[0_20px_40px_-10px_rgba(249,115,22,0.4)] w-auto min-w-[200px] cursor-pointer"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-shimmer"></div>
               <span className="relative z-10 text-sm md:text-lg">Start Your Project</span>
