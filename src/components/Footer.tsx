@@ -14,7 +14,7 @@ export default function Footer() {
           <div className="lg:col-span-5">
             <div className="mb-6">
               <span className="text-2xl font-display font-black text-white tracking-tight">
-                SHRINATH<span className="text-orange-500">MEDIA</span>
+                SHRINATH<span className="text-orange-500">IT</span>
               </span>
             </div>
             <p className="text-slate-300 max-w-sm mb-8 leading-relaxed font-light">
@@ -47,7 +47,7 @@ export default function Footer() {
             <ul className="space-y-5">
               <li className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-[#FF6A00]/50 transition-colors group">
                 <MapPin className="text-[#FF6A00]" size={20} />
-                <span className="text-slate-300 text-sm leading-relaxed font-light group-hover:text-white transition-colors">Shrinath Media Labs, Civil Line, Washim</span>
+                <span className="text-slate-300 text-sm leading-relaxed font-light group-hover:text-white transition-colors">Shrinath IT Solutions, Civil Line, Washim</span>
               </li>
               <li className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-[#FF6A00]/50 transition-colors group">
                 <Phone className="text-[#0055FF]" size={20} />
@@ -64,7 +64,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
           <p className="text-slate-500 font-light text-sm">
-            © {currentYear} Shrinath Media Labs. All rights reserved.
+            © {currentYear} Shrinath IT Solutions. All rights reserved.
           </p>
           <div className="flex gap-8">
             <a href="#" className="text-slate-500 hover:text-white transition-colors text-sm font-medium">Privacy Policy</a>

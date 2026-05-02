@@ -1,7 +1,22 @@
-import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Globe } from './Globe';
+
+const changingWords = [
+  "Digital Marketing",
+  "Content Creation",
+  "Video Ads",
+  "Web & App Development",
+  "UI/UX Design",
+  "SEO",
+  "Branding",
+  "E-commerce",
+  "CRM",
+  "Automation",
+  "Cloud",
+  "IT Infrastructure"
+];
 
 export default function Hero() {
   const containerRef = useRef(null);
@@ -11,6 +26,14 @@ export default function Hero() {
   });
 
   const [progress, setProgress] = useState(0);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % changingWords.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
   
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     setProgress(latest);
@@ -54,11 +77,27 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.05] text-white mb-6 tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.05] text-white mb-4 tracking-tight"
           >
-            Where Ideas<br />Become<br />
-            <span className="text-orange-500 drop-shadow-md">Digital Impact</span>
+            Your Complete Digital & IT <br />
+            <span className="text-orange-500 drop-shadow-md">Growth Partner</span>
           </motion.h1>
+
+          <div className="h-8 md:h-10 mb-6 relative">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentWordIndex}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -20, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="text-xl md:text-2xl font-semibold text-emerald-400 absolute left-0 flex items-center gap-2"
+              >
+                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+                {changingWords[currentWordIndex]}
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -66,7 +105,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-xl text-gray-200 mb-10 max-w-lg leading-relaxed font-sans font-light drop-shadow-sm"
           >
-            We design, build, and scale digital systems for businesses, institutions, and government organizations—driving measurable growth through technology and strategy.
+            We design, develop, market, and automate your business with powerful, scalable solutions
           </motion.p>
 
           <motion.div

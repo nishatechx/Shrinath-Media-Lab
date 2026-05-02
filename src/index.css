@@ -44,6 +44,7 @@ input, textarea {
 }
 
 .mask-gradient {
+  -webkit-mask-image: radial-gradient(circle at center, black 50%, transparent 90%);
   mask-image: radial-gradient(circle at center, black 50%, transparent 90%);
 }
 .glass-panel {

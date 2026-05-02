@@ -33,13 +33,11 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         <a href="#" className="flex items-center group">
-          <div className="bg-white px-4 py-2 rounded-xl shadow-md border border-gray-100 flex items-center justify-center">
-            <img 
-              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEio9baJm4hJx1nKsQCo4rxm6dJBJVpRI4N7026wS7HtRxsrwwzJzdxkA3WQmF3eJAIFsekbLX_DPxjM1quXYBXK9W_WkLwXLlz8fhrTbIrj6IKmUEDLSuKQkhpQ85i0rjWCHyaYZO7Sv60CndOAjkM8yvGwr0Gsjs_fMmAzjdn-WAeS__D7Q4PkCjEYPLI/s16000/Shrinath%20Media%20LABS.png" 
-              alt="Shrinath Media Labs" 
-              className="h-8 md:h-10 w-auto transform group-hover:scale-105 transition-transform duration-300"
-            />
-          </div>
+          <img 
+            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgr-Y87Ia7lihUlQ6BJ8mmV-9tqFLTJnwcxnzcUTKwKfgbdRZAsSKtUkN-u25olDr_an48sU_XTFrzaxZHrSWdWCH-lBeGj2jinpFSnqOzx3_bZUgeCyt5OSmD58atYNjqIfEk9mVHb1XeCPydjkE81DZtUEQ89s1HPF9QH5zON9I5iEV0url29Vc-eN_c/s16000/Shrinath%20IT%20Solutions%20Logo%20PNG.png" 
+            alt="Shrinath IT Solutions" 
+            className="h-[45px] md:h-[60px] lg:h-[75px] w-auto transform group-hover:scale-105 transition-transform duration-300"
+          />
         </a>
 
         {/* Desktop Nav */}

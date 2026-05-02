@@ -51,22 +51,24 @@ export const Particles = () => {
       size: number;
       speedX: number;
       speedY: number;
-      baseX: number;
-      baseY: number;
+      colorBase: string;
+      alpha: number;
+      maxAlpha: number;
+      alphaSpeed: number;
 
       constructor() {
         this.x = Math.random() * (canvas?.width || 0);
         this.y = Math.random() * (canvas?.height || 0);
-        this.baseX = this.x;
-        this.baseY = this.y;
         this.size = Math.random() * 2 + 1;
-        this.speedX = (Math.random() - 0.5) * 0.8;
-        this.speedY = (Math.random() - 0.5) * 0.8;
+        this.speedX = (Math.random() - 0.5) * 0.4;
+        this.speedY = (Math.random() - 0.5) * 0.4;
+        
+        this.alpha = Math.random() * 0.5 + 0.1;
       }
 
       getDrawY() {
         if (!canvas) return this.y;
-        let drawY = (this.y - scrollY * 0.5) % canvas.height;
+        let drawY = (this.y - scrollY * 0.3) % canvas.height;
         if (drawY < 0) drawY += canvas.height;
         return drawY;
       }
@@ -81,7 +83,7 @@ export const Particles = () => {
         if (this.y > (canvas?.height || 0)) this.y = 0;
         else if (this.y < 0) this.y = canvas?.height || 0;
 
-        // Interaction with mouse (mouse interacts with draw position)
+        // Mouse interaction (gentle repulsion)
         const drawY = this.getDrawY();
         const dx = mouse.x - this.x;
         const dy = mouse.y - drawY;
@@ -92,16 +94,14 @@ export const Particles = () => {
           const forceDirectionX = dx / distance;
           const forceDirectionY = dy / distance;
           const force = (maxDist - distance) / maxDist;
-          const directionX = forceDirectionX * force * 2;
-          const directionY = forceDirectionY * force * 2;
-          this.x -= directionX;
-          this.y -= directionY; // modifies real y, not draw Y, but it's fine for simple effect
+          this.x -= forceDirectionX * force * 1.5;
+          this.y -= forceDirectionY * force * 1.5;
         }
       }
 
       draw() {
         if (!ctx) return;
-        ctx.fillStyle = 'rgba(56, 189, 248, 0.6)'; // cyan-400 equivalent
+        ctx.fillStyle = `rgba(56, 189, 248, ${this.alpha})`;
         ctx.beginPath();
         ctx.arc(this.x, this.getDrawY(), this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -133,7 +133,7 @@ export const Particles = () => {
 
           if (distance < maxDistance) {
             const opacity = 1 - (distance / maxDistance);
-            ctx.strokeStyle = `rgba(56, 189, 248, ${opacity * 0.4})`;
+            ctx.strokeStyle = `rgba(56, 189, 248, ${opacity * 0.25})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(paxy.x, paxy.y);
@@ -149,7 +149,7 @@ export const Particles = () => {
         const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
         if (distMouse < 200) {
           const opacity = 1 - (distMouse / 200);
-          ctx.strokeStyle = `rgba(59, 130, 246, ${opacity * 0.5})`; // blue-500 equivalent
+          ctx.strokeStyle = `rgba(56, 189, 248, ${opacity * 0.3})`;
           ctx.lineWidth = 1.5;
           ctx.beginPath();
           ctx.moveTo(particles[a].x, pa_drawY);

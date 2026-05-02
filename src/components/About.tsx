@@ -29,7 +29,7 @@ export default function About() {
             <Reveal delay={0.2} y={30}>
               <div className="space-y-6 mx-auto">
                 <p className="text-xl text-gray-300 font-sans leading-relaxed font-light">
-                  At Shrinath Media Labs, we go beyond campaigns and websites. We create integrated digital ecosystems that help organizations operate smarter, scale faster, and deliver better experiences.
+                  At Shrinath IT Solutions, we go beyond campaigns and websites. We create integrated digital ecosystems that help organizations operate smarter, scale faster, and deliver better experiences.
                 </p>
                 
                 <p className="text-lg text-gray-500 font-sans leading-relaxed font-light">
