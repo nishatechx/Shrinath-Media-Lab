@@ -15,6 +15,7 @@ import CTA from './components/CTA';
 import Footer from './components/Footer';
 import Lenis from 'lenis';
 import { Particles } from './components/Particles';
+import { LiveChatWidget } from './components/LiveChatWidget';
 
 export default function App() {
   useEffect(() => {
@@ -74,6 +75,7 @@ export default function App() {
         <Stats />
         <CTA />
         <Footer />
+        <LiveChatWidget />
       </div>
     </div>
   );

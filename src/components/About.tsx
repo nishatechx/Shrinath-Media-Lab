@@ -20,7 +20,7 @@ export default function About() {
             </Reveal>
             
             <Reveal delay={0.1} y={30}>
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-black leading-[1.1] text-white tracking-tight">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-black leading-[1.1] text-white tracking-tight">
                 We Build Systems<br /> 
                 <span className="text-orange-500">That Drive Growth.</span>
               </h2>
@@ -28,11 +28,11 @@ export default function About() {
 
             <Reveal delay={0.2} y={30}>
               <div className="space-y-6 mx-auto">
-                <p className="text-xl text-gray-300 font-sans leading-relaxed font-light">
+                <p className="text-lg md:text-xl text-gray-300 font-sans leading-relaxed font-light mt-4">
                   At Shrinath IT Solutions, we go beyond campaigns and websites. We create integrated digital ecosystems that help organizations operate smarter, scale faster, and deliver better experiences.
                 </p>
                 
-                <p className="text-lg text-gray-500 font-sans leading-relaxed font-light">
+                <p className="text-base md:text-lg text-gray-500 font-sans leading-relaxed font-light">
                   From local enterprises to government initiatives, our work is built on clarity, performance, and long-term value.
                 </p>
               </div>

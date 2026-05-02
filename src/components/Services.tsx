@@ -223,15 +223,15 @@ export default function Solutions() {
             </Reveal>
             
             <Reveal delay={0.1} y={30}>
-              <h2 className="text-5xl md:text-7xl font-display font-black text-white leading-tight">
-                Engineering <span className="text-orange-500">Digital Growth.</span>
+              <h2 className="text-4xl md:text-5xl lg:text-7xl font-display font-black text-white leading-tight mt-2">
+                Engineering <br className="md:hidden" /><span className="text-orange-500">Digital Growth.</span>
               </h2>
             </Reveal>
           </div>
           
           <Reveal delay={0.2}>
             <div className="md:max-w-sm">
-              <p className="text-gray-400 text-lg leading-relaxed border-l-2 border-orange-500 pl-6">
+              <p className="text-gray-400 text-base md:text-lg leading-relaxed border-l-2 border-orange-500 pl-4 md:pl-6">
                 We deliver end-to-end digital solutions that help organizations grow, communicate, and operate efficiently.
               </p>
             </div>

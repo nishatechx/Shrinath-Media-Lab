@@ -52,7 +52,7 @@ export default function Stats() {
             </div>
           </Reveal>
           <Reveal delay={0.1} y={30}>
-            <h2 className="text-4xl md:text-6xl font-display font-black text-white tracking-tight">Proven Results</h2>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-white tracking-tight mt-2">Proven Results</h2>
           </Reveal>
         </div>
 
@@ -67,7 +67,7 @@ export default function Stats() {
               transition: { staggerChildren: 0.1 }
             }
           }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 border-t border-white/10 py-16"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 border-t border-white/10 py-10 md:py-16"
         >
             
             <motion.div 

@@ -43,14 +43,14 @@ export default function WhyChooseUs() {
               </Reveal>
               
               <Reveal delay={0.1} y={30}>
-                <h2 className="text-5xl md:text-6xl font-display font-black text-white mb-8 leading-tight">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-white mb-6 md:mb-8 leading-tight">
                   Built for Performance.<br/>
                   <span className="text-orange-500">Designed for Scale.</span>
                 </h2>
               </Reveal>
               
               <Reveal delay={0.2} y={30}>
-                <p className="text-gray-300 text-lg mb-10 leading-relaxed font-light">
+                <p className="text-gray-300 text-base md:text-lg mb-8 md:mb-10 leading-relaxed font-light">
                   We don’t deliver “services.”<br/>
                   <span className="text-white font-medium">We deliver solutions that perform in real-world conditions.</span>
                 </p>

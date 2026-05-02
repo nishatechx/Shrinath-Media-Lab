@@ -24,14 +24,14 @@ export default function CTA() {
               </Reveal>
               
               <Reveal delay={0.1} y={30}>
-                <h2 className="text-6xl md:text-8xl font-display font-black text-white mb-8 tracking-tight leading-[1.1]">
+                <h2 className="text-4xl md:text-6xl lg:text-8xl font-display font-black text-white mb-6 md:mb-8 tracking-tight leading-[1.1]">
                   Let's Build <br />
                   Something <span className="text-orange-500">Legendary.</span>
                 </h2>
               </Reveal>
               
               <Reveal delay={0.2} y={30}>
-                <p className="text-xl text-slate-300 mb-12 max-w-lg leading-relaxed font-light">
+                <p className="text-base md:text-xl text-slate-300 mb-8 md:mb-12 max-w-lg leading-relaxed font-light">
                   Ready to take your digital experience to the next level? Our engineering-first approach ensures growth, scale, and performance.
                 </p>
               </Reveal>
@@ -68,7 +68,7 @@ export default function CTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white/5 backdrop-blur-3xl rounded-[2rem] p-8 md:p-12 border border-white/10 relative overflow-hidden shadow-2xl"
+              className="bg-white/5 backdrop-blur-3xl rounded-[2rem] p-6 md:p-12 border border-white/10 relative overflow-hidden shadow-2xl"
             >
               <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-orange-500/5 to-transparent rounded-bl-full pointer-events-none"></div>
               <ContactForm />
